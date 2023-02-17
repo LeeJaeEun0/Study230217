@@ -6,19 +6,17 @@ class SutdaDeck {
 
     SutdaDeck() {
         // 1. 적절하게 초기화 하시오!
-        SutdaCard c= new SutdaCard();
-        for(int i =0; i<2; i++){
-            for(int j=1; j<=10; j++){
+        int j = 1;
+        for (int i = 0; i < cards.length; i++) {
 
-                if (j == 1 || j==3 || j==8){
-                    SutdaCard c = new SutdaCard(j, true);
-                   cards[j] = c.toString();
-                } 
-                else{
-
-                } // end of if else
-                    
-            } // end of for j
+            if (j == 1 || j == 3 || j == 8) {
+                cards[i] = new SutdaCard(j, true);
+                // cards[i].toString();
+            } else {
+                cards[i] = new SutdaCard(j, false);
+                // cards[i].toString();
+            } // end of if else
+            j = j > 10 ? j - 10 : j++;
         } // end of for i
     }
 } // end of class
@@ -44,6 +42,7 @@ class SutdaCard {
 
 public class Practice7_1 {
     public static void main(String[] args) {
+
         SutdaDeck deck = new SutdaDeck();
 
         for (int i = 0; i > deck.cards.length; i++) {
