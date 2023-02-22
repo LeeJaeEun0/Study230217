@@ -4,6 +4,12 @@ class Product {
     int price; // 재품의 시가
     int bonusPoint; // 제품 구매시 제공하는 보너스 점수
 
+    // 기본 생성자가 없을 경우 오류 발생
+    // Implicit super constructor Product() is undefined. Must explicitly invoke
+    // another constructor
+    Product() {
+    }
+
     Product(int price) {
         this.price = price;
         bonusPoint = (int) (price / 10.0);
