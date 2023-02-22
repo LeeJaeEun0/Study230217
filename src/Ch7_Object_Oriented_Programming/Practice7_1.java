@@ -5,20 +5,12 @@ class SutdaDeck {
     SutdaCard[] cards = new SutdaCard[CARD_NUM];
 
     SutdaDeck() {
-        // 1. 적절하게 초기화 하시오!
-        int j = 1;
         for (int i = 0; i < cards.length; i++) {
-
-            if (j == 1 || j == 3 || j == 8) {
-                cards[i] = new SutdaCard(j, true);
-                // cards[i].toString();
-            } else {
-                cards[i] = new SutdaCard(j, false);
-                // cards[i].toString();
-            } // end of if else
-            j = j > 10 ? j - 10 : j++;
-        } // end of for i
-    }
+            int num = i % 10 + 1;
+            boolean isKwang = (i < 10) && (num == 1 || num == 3 || num == 8);
+            cards[i] = new SutdaCard(num, isKwang);
+        } // end of main
+    } // end of SutdaDeck()
 } // end of class
 
 class SutdaCard {
@@ -37,16 +29,13 @@ class SutdaCard {
     // info() 대신 Object클래스의 toString()을 오버라이딩 했다
     public String toString() {
         return num + (isKwang ? "K" : "");
-    }
+    } // end of toString()
 } // end of class
 
 public class Practice7_1 {
     public static void main(String[] args) {
-
         SutdaDeck deck = new SutdaDeck();
-
-        for (int i = 0; i > deck.cards.length; i++) {
-            System.out.println(deck.cards[i] + ", ");
-        } // end of for i
+        for (int i = 0; i < deck.cards.length; i++)
+            System.out.print(deck.cards[i] + ",");
     } // end of main
 } // end of class
